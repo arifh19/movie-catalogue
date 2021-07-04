@@ -1,0 +1,40 @@
+image: node:latest
+
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: build
+  script:
+    - npm install
+    
+build-webpack:
+  stage: build
+  script:
+    - npm run build
+
+unit-testing:
+  stage: test
+  script:
+    - echo "test"
+
+integration-testing:
+  stage: test
+  script:
+    - echo "integration testing"
+
+deploy-to-development-server:
+  stage: deploy
+  script:
+    - echo "development server"
+
+deploy-to-staging-server:
+  stage: deploy
+  script:
+    - echo "staging server"
